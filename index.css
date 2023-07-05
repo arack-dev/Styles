@@ -1,0 +1,118 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root {
+    --primary-color: #007bff;
+    --secondary-color: #6c757d;
+    --light-color: #f8f9fa;
+    --dark-color: #343a40;
+    --font-primary: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --font-secondary: 'Roboto', sans-serif;
+}
+html {
+    font-size: 62.5%;
+}
+body {
+    font-family: var(--font-primary);
+    background-color: var(--light-color);
+    color: var(--dark-color);
+}
+a {
+    text-decoration: none;
+    color: var(--dark-color);
+}
+h1 {
+    font-size: 4rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 2rem;
+}
+h2 {
+    font-size: 3.6rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 2rem;
+}
+h3 {
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 2rem;
+}
+p {
+    font-size: 1.6rem;
+    margin-bottom: 2rem;
+}
+ul {
+    list-style: none;
+}
+li {
+    margin-bottom: 1rem;
+}
+
+/* CLASES GENERALES */
+
+.max-container {
+    max-width: 90%;
+    margin: 0 auto;
+}
+.min-container {
+    max-width: 80%;
+    margin: 0 auto;
+    padding: 0 5rem;
+}
+.content {
+    padding: 3rem 0;
+}
+.flex-r {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.flex-c {
+    display: flex;
+    flex-direction: column;
+}
+.separate-items {
+    justify-content: space-between;
+    align-items: center;
+}
+.center-items {
+    justify-content: center;
+    align-items: center;
+}
+.gap-1 {
+    gap: 1rem;
+}
+.gap-2 {
+    gap: 2rem;
+}
+.gap-3 {
+    gap: 3rem;
+}
+.gap-4 {
+    gap: 4rem;
+}
+.gap-5 {
+    gap: 5rem;
+}
+.gap-10 {
+    gap: 10rem;
+}
+.btn {
+    display: inline-block;
+    padding: 1rem 2rem;
+    border-radius: 0.5rem;
+    border: 2px solid var(--light-color);
+    background-color: transparent;
+    color: var(--light-color);
+    font-size: 1.6rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+.btn:hover {
+    background-color: var(--dark-color);
+}
