@@ -1,118 +1,128 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* Definimos las Custom properties */
+:root{
+  /* Colores */
+  --negro         : #393939;
+  
+  /* Tipografía */
+  --tipo-principal   : Helvetica, Arial, sans-serif;
+  --tipo-secundaria  : Verdana;
 }
-:root {
-    --primary-color: #007bff;
-    --secondary-color: #6c757d;
-    --light-color: #f8f9fa;
-    --dark-color: #343a40;
-    --font-primary: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    --font-secondary: 'Roboto', sans-serif;
+  
+/* (Opcional) Las adaptamos al modo oscuro */
+@media (prefers-color-scheme: dark) {
+  :root{
+      --negro         : #ececec;
+  }
 }
-html {
-    font-size: 62.5%;
+
+/* (Opcional) Configuramos si un usuario ha activado el modo alto contraste. (WD) */
+@media (prefers-contrast: high){
+    :root{}
 }
-body {
-    font-family: var(--font-primary);
-    background-color: var(--light-color);
-    color: var(--dark-color);
+
+/* (Opcional) Desactivamos los animations en el caso de que el usuario haya configurado el modo sin animation */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
 }
+
+/* Reseteamos los margin y paddings de todas las etiquetas */
+* , *::before , *::after{
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  vertical-align: baseline;
+}
+*::before , *::after{
+  display: block;
+}
+
+/* Evitamos problemas con las imagenes */
+img , picture , video , iframe , figure{
+  max-width: 100%;
+  width: 100%;
+  display: block;
+  /* (Opcional) */ object-fit: cover;        
+  /* (Opcional) */ object-position: center center;
+}
+
+/* Reseteamos los enlaces para funcionar como cajas... */
 a {
-    text-decoration: none;
-    color: var(--dark-color);
+  display: block;
+  text-decoration: none;
+  color:inherit;
+  font-size:inherit;
 }
-h1 {
-    font-size: 4rem;
-    font-weight: 700;
-    line-height: 1.2;
-    margin-bottom: 2rem;
+/* ... excepto los que se encuentran en párrafos */
+p a {
+  display: inline;
 }
-h2 {
-    font-size: 3.6rem;
-    font-weight: 700;
-    line-height: 1.2;
-    margin-bottom: 2rem;
-}
-h3 {
-    font-size: 3rem;
-    font-weight: 700;
-    line-height: 1.2;
-    margin-bottom: 2rem;
-}
-p {
-    font-size: 1.6rem;
-    margin-bottom: 2rem;
-}
-ul {
-    list-style: none;
-}
+
+/* Quitamos los puntos de los <li> */
 li {
-    margin-bottom: 1rem;
+  list-style-type: none;
 }
 
-/* CLASES GENERALES */
+/* (Opcional) Configuramos anclas suaves */
+html {
+  scroll-behavior: smooth;
+}
 
-.max-container {
-    max-width: 90%;
-    margin: 0 auto;
+/* Desactivamos estilos por defecto de las principales etiquetas de texto */
+h1 , h2 , h3 , h4 , h5 , h6 , p ,span , a , strong , blockquote , i , b , u , em {
+  font-size: inherit;
+  font-weight: inherit;
+  font-style: inherit;
+  text-decoration: none;
+  color:inherit;
 }
-.min-container {
-    max-width: 80%;
-    margin: 0 auto;
-    padding: 0 5rem;
+/* Evitamos problemas con los pseudoelementos de quotes */
+blockquote:before, blockquote:after, q:before, q:after {
+	content: '';
+	content: none;
 }
-.content {
-    padding: 3rem 0;
+
+/* (Opcional) Configuramos el texto que seleccionamos */
+::selection {
+  background-color: var(--negro);
+  color: var(--blanco);
 }
-.flex-r {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-}
-.flex-c {
-    display: flex;
-    flex-direction: column;
-}
-.separate-items {
-    justify-content: space-between;
-    align-items: center;
-}
-.center-items {
-    justify-content: center;
-    align-items: center;
-}
-.gap-1 {
-    gap: 1rem;
-}
-.gap-2 {
-    gap: 2rem;
-}
-.gap-3 {
-    gap: 3rem;
-}
-.gap-4 {
-    gap: 4rem;
-}
-.gap-5 {
-    gap: 5rem;
-}
-.gap-10 {
-    gap: 10rem;
-}
-.btn {
-    display: inline-block;
-    padding: 1rem 2rem;
-    border-radius: 0.5rem;
-    border: 2px solid var(--light-color);
+
+/* Nivelamos problemas de tipografías y colocación de formularios */
+form , input, textarea, select , button , label{
+    font-family: inherit;
+    font-size: inherit;
+    hyphens: auto;
     background-color: transparent;
-    color: var(--light-color);
-    font-size: 1.6rem;
-    font-weight: 700;
-    cursor: pointer;
-    transition: all 0.3s ease-in-out;
+    color:inherit;
+    display: block;
+    /* (Opcional) */ appearance: none;
 }
-.btn:hover {
-    background-color: var(--dark-color);
+
+/* Reseteamos las tablas */
+table , tr , td {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* Evitamos problemas con los SVG */
+svg{
+    width: 100%;
+    display: block;
+    fill: currentColor;
+}
+
+/* Configuramos la tipografía para toda la web */
+body {
+  min-height  : 100vh;
+  font-size   : 100%;
+  font-family : var(--tipo-principal);
+  color       : var(--negro);
+  /* (Opcional) */ hyphens: auto;
+  /* (Opcional) */ font-smooth: always;
+  /* (Opcional) */ -webkit-font-smoothing: antialiased;
+  /* (Opcional) */ -moz-osx-font-smoothing: grayscale;
 }
